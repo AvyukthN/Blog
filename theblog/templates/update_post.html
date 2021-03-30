@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block titile %}Edit Blog Post{% endblock %}
+{% block content %}
+
+
+{% if user.is_authenticated %}
+<h1>Blog About Life</h1>
+<br/><br/>
+
+<div class="mb-3">
+    <form method = "POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button class = "btn btn-dark btn-sm">Update</button>
+    </form>
+</div>
+{% else %}
+
+<p style = "font-size: 40px"><strong>Bongos</strong> - lol login bro</p>
+
+{% endif %}
+
+{% endblock %}
